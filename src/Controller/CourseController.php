@@ -56,12 +56,12 @@ class CourseController extends AbstractController
         'data' => 'Curso criado com sucesso.'
       ]);
     }
+    
 
     /**
      * @Route("/{couseId}", name="update", methods={"PUT", "PATCH"})
      */
-    public function update($couseId, Request $request)
-    {
+    public function update($couseId, Request $request){
       $data = $request->request->all();
 
       $doctrine = $this->getDoctrine();
@@ -83,15 +83,13 @@ class CourseController extends AbstractController
       return $this->json([
         'data' => 'Curso atualizado com sucesso.'
       ]);
-      
     }
+
 
     /**
      * @Route("/{couseId}", name="delete", methods={"DELETE"})
      */
-    public function delete($couseId)
-    {
-
+    public function delete($couseId){
       $doctrine = $this->getDoctrine();
 
       $course = $doctrine->getRepository(Course::class)->find($couseId);
@@ -104,6 +102,5 @@ class CourseController extends AbstractController
       return $this->json([
         'data' => 'Curso removido com sucesso.'
       ]);
-      
     }
 }
